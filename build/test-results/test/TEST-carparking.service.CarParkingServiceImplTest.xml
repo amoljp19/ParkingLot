@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="carparking.service.CarParkingServiceImplTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-08-09T13:08:55" hostname="LAPTOP-2D1GM5DQ" time="0.069">
+<testsuite name="carparking.service.CarParkingServiceImplTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-08-09T13:35:16" hostname="LAPTOP-2D1GM5DQ" time="0.048">
   <properties/>
-  <testcase name="testLeaveCar" classname="carparking.service.CarParkingServiceImplTest" time="0.069"/>
+  <testcase name="testCarParkingStatus" classname="carparking.service.CarParkingServiceImplTest" time="0.048"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

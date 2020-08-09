@@ -52,6 +52,18 @@ class CarParkingServiceImplTest {
         assertEquals("Sorry,parkinglotisnotcreatedCreatedparkinglotofmaximumcapacityof6slotsCarallocatedatslotnumber:1Carallocatedatslotnumber:2Slotnumber2isfree".trimIndent(), outContent.toString().trim { it <= ' ' }.replace(" ", "").replace("\n", "").replace("\r", ""))
     }
 
+    @Test
+    @Throws(Exception::class)
+    fun testCarParkingStatus() {
+        carParkingService.carParkingStatus()
+        assertEquals("Sorry,parkinglotisnotcreated", outContent.toString().trim { it <= ' ' }.replace(" ", ""))
+        carParkingService.createCarParkingLot("6")
+        carParkingService.parkCar(Car("KA-01-HH-1234", "White"))
+        carParkingService.parkCar(Car("KA-01-HH-9999", "White"))
+        carParkingService.carParkingStatus()
+        assertEquals("Sorry,parkinglotisnotcreatedCreatedparkinglotofmaximumcapacityof6slotsCarallocatedatslotnumber:1Carallocatedatslotnumber:2SlotNo.RegistrationNo.Color1KA-01-HH-1234White2KA-01-HH-9999White".trimIndent(), outContent.toString().trim { it <= ' ' }.replace(" ", "").replace("\n", "").replace("\r", "").replace("\t", ""))
+    }
+
 
     @After
     fun cleanUpStreams() {
