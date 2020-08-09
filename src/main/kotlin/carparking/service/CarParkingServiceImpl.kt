@@ -54,7 +54,7 @@ class CarParkingServiceImpl : CarParkingService {
         }
     }
 
-    override fun leaveCar(carRegNo: String, hours: String) {
+    override fun leaveCar(carRegNo: String, hours: String){
         when {
             this.MAX_CAPACITY.equals(0) -> {
                 println("Sorry, parking lot is not created")
@@ -62,19 +62,25 @@ class CarParkingServiceImpl : CarParkingService {
             }
             this.slotAndCarMap.size > 0 -> {
                 val slotNo: String = this.carRegNoAndSlotMap.get(carRegNo).toString()
-                val carToLeave: Car = this.slotAndCarMap.get(slotNo)!!
-                when {
-                    !carToLeave.equals(null) -> {
-                        this.slotAndCarMap.remove(slotNo)
+                lateinit var carToLeave: Car
+                if(!slotNo.equals("null")){
+                    carToLeave = this.slotAndCarMap.get(slotNo)!!
 
-                        this.carRegNoAndSlotMap.remove(carToLeave.regNo)
-                        availableSlotList.add(slotNo.toInt())
-                        System.out.println("Registration number " + carToLeave.regNo + " with Slot Number " + slotNo + " with Charge " + getApplicableCharge(hours))
-                        println()
-                    }
-                    else -> {
-                        System.out.println("Slot number " + slotNo + " is already empty")
-                        println()
+                    if(!carToLeave.equals(null)){
+                        when {
+                            !carToLeave.equals(null) -> {
+                                this.slotAndCarMap.remove(slotNo)
+
+                                this.carRegNoAndSlotMap.remove(carToLeave.regNo)
+                                availableSlotList.add(slotNo.toInt())
+                                System.out.println("Registration number " + carToLeave.regNo + " with Slot Number " + slotNo + " with Charge " + getApplicableCharge(hours))
+                                println()
+                            }
+                            else -> {
+                                System.out.println("Slot number " + slotNo + " is already empty")
+                                println()
+                            }
+                        }
                     }
                 }
             }
