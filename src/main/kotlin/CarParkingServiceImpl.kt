@@ -1,4 +1,14 @@
+
+import java.util.*
+
+
 class CarParkingServiceImpl : CarParkingService {
+
+    lateinit var availableSlotList: ArrayList<Int>
+
+    lateinit var slotAndCarMap: Map<String, Car>
+
+    lateinit var carRegNoAndSlotMap: Map<String, String>
 
     override fun createParkingLot(capacity: String) {
         TODO("Not yet implemented")
