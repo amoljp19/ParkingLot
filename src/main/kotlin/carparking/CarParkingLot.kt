@@ -19,8 +19,8 @@ object CarParkingLot {
         carParkingService.parkCar(car)
     }
 
-    fun leaveCar(slotNo: String){
-        carParkingService.leaveCar(slotNo)
+    fun leaveCar(carRegNo: String, hours: String){
+        carParkingService.leaveCar(carRegNo, hours)
     }
 
     fun carParkingStatus(){

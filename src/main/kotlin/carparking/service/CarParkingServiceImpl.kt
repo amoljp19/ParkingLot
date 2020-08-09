@@ -55,7 +55,7 @@ class CarParkingServiceImpl : CarParkingService {
         }
     }
 
-    override fun leaveCar(slotNo: String) {
+    override fun leaveCar(carRegNo: String, hours: String) {
         TODO("Not yet implemented")
     }
 

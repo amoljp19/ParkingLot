@@ -7,7 +7,7 @@ interface CarParkingService {
 
     fun parkCar(car: Car)
 
-    fun leaveCar(slotNo: String)
+    fun leaveCar(carRegNo: String, hours : String)
 
     fun carParkingStatus()
 }

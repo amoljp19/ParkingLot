@@ -37,11 +37,12 @@ object CommandProcessor {
                 CarParkingLot.parkCar(Car(regNo, color))
             }
             Commands.LEAVE -> {
-                if (!inputStrList.size.equals(2)) {
+                if (!inputStrList.size.equals(3)) {
                     throw Exception("Invalid no of arguments for command : $command")
                 }
-                val slotNo = inputStrList[1]
-                CarParkingLot.leaveCar(slotNo)
+                val carRegNo = inputStrList[1]
+                val hours = inputStrList[2]
+                CarParkingLot.leaveCar(carRegNo, hours)
             }
             Commands.STATUS -> {
                 if(!inputStrList.size.equals(2)) {
