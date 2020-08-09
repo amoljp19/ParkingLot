@@ -5,6 +5,6 @@ import java.io.InputStream
 fun main() {
     val inputStream: InputStream = File("src/main/resources/file_input.txt").inputStream()
 
-    val inputString = inputStream.bufferedReader().use { it.forEachLine { CommandProcessor.validateCommandAndProcess(it) } }
+    val inputString = inputStream.bufferedReader().use { it.forEachLine { CommandProcessor.validateCommandsAndProcess(it) } }
     println(inputString)
 }
