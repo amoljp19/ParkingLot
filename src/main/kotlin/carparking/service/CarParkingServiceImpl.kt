@@ -66,9 +66,10 @@ class CarParkingServiceImpl : CarParkingService {
                 when {
                     !carToLeave.equals(null) -> {
                         this.slotAndCarMap.remove(slotNo)
+
                         this.carRegNoAndSlotMap.remove(carToLeave.regNo)
                         availableSlotList.add(slotNo.toInt())
-                        System.out.println("Slot number " + slotNo + " is free")
+                        System.out.println("Registration number " + carToLeave.regNo + " with Slot Number " + slotNo + " is free" + " with Charge " + getApplicableCharge(hours))
                         println()
                     }
                     else -> {
@@ -108,5 +109,12 @@ class CarParkingServiceImpl : CarParkingService {
                 println()
             }
         }
+    }
+
+    fun getApplicableCharge(hours: String): String{
+        var applicableCharge = 10
+        var additionalHours = hours.toInt() - 2
+        applicableCharge += additionalHours * 10
+        return applicableCharge.toString()
     }
 }
