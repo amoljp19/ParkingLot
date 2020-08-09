@@ -1,14 +1,25 @@
+import org.junit.After
 import org.junit.Assert
+import org.junit.Before
 import org.junit.Test
+import java.io.ByteArrayOutputStream
 import java.io.File
 import java.io.InputStream
+import java.io.PrintStream
 
 class ReadInputFileTest {
+    lateinit var inputStream: InputStream
+    private val outContent = ByteArrayOutputStream()
+
+    @Before
+    fun setUpStreams() {
+        inputStream = File("src/test/resources/file_input.txt").inputStream()
+        System.setOut(PrintStream(outContent))
+    }
 
 
     @Test
-    fun readInputFileLineTest() {
-        val inputStream: InputStream = File("src/test/resources/file_input.txt").inputStream()
+    fun readInputFileTextTest() {
 
         val inputString = inputStream.bufferedReader().use { it.readText() }
 
@@ -21,7 +32,7 @@ class ReadInputFileTest {
                 "park KA-01-HH-3141 Black\n" +
                 "leave KA-01-HH-3141 4\n" +
                 "status\n" +
-                "park KA-01-P-333 White\n" +
+                "park KA-01-P-0333 White\n" +
                 "park DL-12-AA-9999 White\n" +
                 "leave KA-01-HH-1234 4\n" +
                 "leave KA-01-BB-0001 6\n" +
@@ -33,4 +44,18 @@ class ReadInputFileTest {
 
         Assert.assertEquals(expectedString, inputString)
     }
+
+    @Test
+    fun testReadInputFileText() {
+        inputStream = File("src/test/resources/file_input1.txt").inputStream()
+        readInputFileText(inputStream)
+        Assert.assertTrue("Createdparkinglotofmaximumcapacityof6slotsCarallocatedatslotnumber:1".equals(outContent.toString().trim { it <= ' ' }.replace(" ", "").replace("\n", "").replace("\r", "")))
+    }
+
+    @After
+    fun cleanUpStreams() {
+        System.setOut(null)
+        inputStream.close()
+    }
+
 }
