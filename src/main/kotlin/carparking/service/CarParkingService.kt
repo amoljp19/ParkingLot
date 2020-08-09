@@ -1,3 +1,5 @@
+package carparking.service
+
 interface CarParkingService {
     fun createCarParkingLot(capacity:String)
 

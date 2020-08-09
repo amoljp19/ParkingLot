@@ -1,3 +1,4 @@
+import commands.CommandProcessor
 import java.io.File
 import java.io.InputStream
 

@@ -1,3 +1,8 @@
+package carparking
+
+import carparking.service.CarParkingService
+import carparking.service.CarParkingServiceImpl
+
 object CarParkingLot {
     lateinit var carParkingService: CarParkingService
 

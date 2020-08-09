@@ -1,3 +1,5 @@
+package commands
+
 enum class Commands(val commandName: String) {
 
     CREATE_PARKING_LOT("create_parking_lot"),

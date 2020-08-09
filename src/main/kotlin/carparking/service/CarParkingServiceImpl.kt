@@ -1,3 +1,6 @@
+package carparking.service
+
+import carparking.model.Car
 import java.util.*
 
 

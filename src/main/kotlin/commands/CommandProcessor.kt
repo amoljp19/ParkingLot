@@ -1,3 +1,7 @@
+package commands
+
+import carparking.CarParkingLot
+
 object CommandProcessor {
 
     fun validateCommandsAndProcess(inputString: String){
@@ -30,7 +34,7 @@ object CommandProcessor {
                 val regNo = inputStrList[1]
                 val color = inputStrList[2]
                 CarParkingLot.parkCar(regNo, color)
-                println("Park Car")
+                println("Park carparking.model.Car")
             }
             Commands.LEAVE -> {
                 if (!inputStrList.size.equals(2)) {
@@ -38,7 +42,7 @@ object CommandProcessor {
                 }
                 val slotNo = inputStrList[1]
                 CarParkingLot.leaveCar(slotNo)
-                println("Leave Car")
+                println("Leave carparking.model.Car")
             }
             Commands.STATUS -> {
                 if(!inputStrList.size.equals(2)) {
