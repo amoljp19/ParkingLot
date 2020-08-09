@@ -2,7 +2,6 @@ package carparking.service
 
 import carparking.model.Car
 import java.util.*
-import kotlin.collections.ArrayList
 import kotlin.collections.HashMap
 
 
@@ -56,7 +55,33 @@ class CarParkingServiceImpl : CarParkingService {
     }
 
     override fun leaveCar(carRegNo: String, hours: String) {
-        TODO("Not yet implemented")
+        when {
+            this.MAX_CAPACITY.equals(0) -> {
+                println("Sorry, parking lot is not created")
+                println()
+            }
+            this.slotAndCarMap.size > 0 -> {
+                val slotNo: String = this.carRegNoAndSlotMap.get(carRegNo)!!
+                val carToLeave: Car = this.slotAndCarMap.get(slotNo)!!
+                when {
+                    !carToLeave.equals(null) -> {
+                        this.slotAndCarMap.remove(slotNo)
+                        this.carRegNoAndSlotMap.remove(carToLeave.regNo)
+                        availableSlotList.add(slotNo.toInt())
+                        System.out.println("Slot number " + slotNo + " is free")
+                        println()
+                    }
+                    else -> {
+                        System.out.println("Slot number " + slotNo + " is already empty")
+                        println()
+                    }
+                }
+            }
+            else -> {
+                println("Parking lot is empty")
+                println()
+            }
+        }
     }
 
     override fun carParkingStatus() {

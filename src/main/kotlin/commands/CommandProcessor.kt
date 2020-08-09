@@ -46,9 +46,9 @@ object CommandProcessor {
             }
             Commands.STATUS -> {
                 if(!inputStrList.size.equals(2)) {
-                    throw Exception("Invalid no of arguments for command : " + command);
+                   // throw Exception("Invalid no of arguments for command : " + command);
                 }
-                CarParkingLot.carParkingStatus()
+                //CarParkingLot.carParkingStatus()
             }
         }
 
