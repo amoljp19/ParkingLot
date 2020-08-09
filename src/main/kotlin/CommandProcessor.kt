@@ -1,16 +1,13 @@
-
-
-
 object CommandProcessor {
 
     fun validateCommandsAndProcess(inputString: String){
 
-        val inputStrArr: List<String> = inputString.split(" ")
-        if (inputStrArr[0] == "") {
+        val inputStrList: List<String> = inputString.split(" ")
+        if (inputStrList[0] == "") {
             println("Thanks for using the program")
             return
         }
-        val command: Commands? = Commands.findByCommandName(inputStrArr[0])
+        val command: Commands? = Commands.findByCommandName(inputStrList[0])
 
         if (command == null) {
             println("Invalid command")
@@ -19,15 +16,36 @@ object CommandProcessor {
 
         when(command){
             Commands.CREATE_PARKING_LOT -> {
+                if (!inputStrList.size.equals(2)) {
+                    throw Exception("Invalid no of arguments for command : $command")
+                }
+                val maxCapacity = inputStrList[1]
+                CarParkingLot.createParkingLot(maxCapacity)
+
                 println("Car Parking Lot created")
             }
             Commands.PARK -> {
+                if (!inputStrList.size.equals(3)) {
+                    throw Exception("Invalid no of arguments for command : $command")
+                }
+                val regNo = inputStrList[1]
+                val color = inputStrList[2]
+                CarParkingLot.parkCar(regNo, color)
                 println("Park Car")
             }
             Commands.LEAVE -> {
+                if (!inputStrList.size.equals(2)) {
+                    throw Exception("Invalid no of arguments for command : $command")
+                }
+                val slotNo = inputStrList[1]
+                CarParkingLot.leaveCar(slotNo)
                 println("Leave Car")
             }
             Commands.STATUS -> {
+                if(!inputStrList.size.equals(2)) {
+                    throw Exception("Invalid no of arguments for command : " + command);
+                }
+                CarParkingLot.carParkingStatus()
                 println("Parking Satus")
             }
         }
