@@ -1,8 +1,7 @@
 package commands
 
-import javafx.scene.web.HTMLEditorSkin.Command
-import junit.framework.Assert.assertEquals
-import junit.framework.Assert.assertTrue
+import org.junit.Assert.assertEquals
+import org.junit.Assert.assertTrue
 import org.junit.Test
 
 
