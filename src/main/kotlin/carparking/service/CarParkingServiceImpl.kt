@@ -45,7 +45,7 @@ class CarParkingServiceImpl : CarParkingService {
             else -> {
                 Collections.sort(availableSlotList)
                 val slot = availableSlotList[0].toString()
-                this.slotAndCarMap.put(slot,car)
+                this.slotAndCarMap.put(slot, car)
                 this.carRegNoAndSlotMap.put(car.regNo, slot)
                 println("Car allocated at slot number: $slot")
                 println()
@@ -54,7 +54,7 @@ class CarParkingServiceImpl : CarParkingService {
         }
     }
 
-    override fun leaveCar(carRegNo: String, hours: String){
+    override fun leaveCar(carRegNo: String, hours: String) {
         when {
             this.MAX_CAPACITY.equals(0) -> {
                 println("Sorry, parking lot is not created")
@@ -63,10 +63,10 @@ class CarParkingServiceImpl : CarParkingService {
             this.slotAndCarMap.size > 0 -> {
                 val slotNo: String = this.carRegNoAndSlotMap.get(carRegNo).toString()
                 lateinit var carToLeave: Car
-                if(!slotNo.equals("null")){
+                if (!slotNo.equals("null")) {
                     carToLeave = this.slotAndCarMap.get(slotNo)!!
 
-                    if(!carToLeave.equals(null)){
+                    if (!carToLeave.equals(null)) {
                         when {
                             !carToLeave.equals(null) -> {
                                 this.slotAndCarMap.remove(slotNo)
@@ -117,7 +117,7 @@ class CarParkingServiceImpl : CarParkingService {
         }
     }
 
-    fun getApplicableCharge(hours: String): String{
+    fun getApplicableCharge(hours: String): String {
         var applicableCharge = 10
         val additionalHours = hours.toInt() - 2
         applicableCharge += additionalHours * 10

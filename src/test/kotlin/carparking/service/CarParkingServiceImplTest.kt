@@ -1,9 +1,9 @@
 package carparking.service
 
 import carparking.model.Car
+import org.junit.After
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertTrue
-import org.junit.After
 import org.junit.Before
 import org.junit.Test
 import java.io.ByteArrayOutputStream
@@ -65,7 +65,7 @@ class CarParkingServiceImplTest {
     }
 
     @Test
-    fun testGetApplicableCharge(){
+    fun testGetApplicableCharge() {
         assertEquals("60", carParkingService.getApplicableCharge("7"))
     }
 

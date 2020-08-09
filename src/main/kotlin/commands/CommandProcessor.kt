@@ -5,7 +5,7 @@ import carparking.model.Car
 
 object CommandProcessor {
 
-    fun validateCommandsAndProcess(inputString: String){
+    fun validateCommandsAndProcess(inputString: String) {
 
         val inputStrList: List<String> = inputString.split(" ")
         if (inputStrList[0] == "") {
@@ -19,7 +19,7 @@ object CommandProcessor {
             return
         }
 
-        when(command){
+        when (command) {
             Commands.CREATE_PARKING_LOT -> {
                 if (!inputStrList.size.equals(2)) {
                     throw Exception("Invalid no of arguments for command : $command")
@@ -45,7 +45,7 @@ object CommandProcessor {
                 CarParkingLot.leaveCar(carRegNo, hours)
             }
             Commands.STATUS -> {
-                if(!inputStrList.size.equals(1)) {
+                if (!inputStrList.size.equals(1)) {
                     throw Exception("Invalid no of arguments for command : " + command);
                 }
                 CarParkingLot.carParkingStatus()
