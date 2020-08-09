@@ -1,5 +1,6 @@
 package carparking
 
+import carparking.model.Car
 import carparking.service.CarParkingService
 import carparking.service.CarParkingServiceImpl
 
@@ -14,8 +15,8 @@ object CarParkingLot {
         carParkingService.createCarParkingLot(capacity)
     }
 
-    fun parkCar(regNo: String, color: String){
-        carParkingService.parkCar(regNo, color)
+    fun parkCar(car: Car){
+        carParkingService.parkCar(car)
     }
 
     fun leaveCar(slotNo: String){

@@ -31,7 +31,7 @@ class CarParkingServiceImpl : CarParkingService {
         println()
     }
 
-    override fun parkCar(regNo: String, color: String) {
+    override fun parkCar(car: Car) {
         TODO("Not yet implemented")
     }
 
