@@ -49,7 +49,7 @@ class CarParkingServiceImplTest {
         carParkingService.parkCar(Car("KA-01-HH-1234", "White"))
         carParkingService.parkCar(Car("KA-01-HH-9999", "White"))
         carParkingService.leaveCar("KA-01-HH-9999", "2")
-        assertEquals("Sorry,parkinglotisnotcreatedCreatedparkinglotofmaximumcapacityof6slotsCarallocatedatslotnumber:1Carallocatedatslotnumber:2Slotnumber2isfree".trimIndent(), outContent.toString().trim { it <= ' ' }.replace(" ", "").replace("\n", "").replace("\r", ""))
+        assertEquals("Sorry,parkinglotisnotcreatedCreatedparkinglotofmaximumcapacityof6slotsCarallocatedatslotnumber:1Carallocatedatslotnumber:2RegistrationnumberKA-01-HH-9999withSlotNumber2withCharge10".trimIndent(), outContent.toString().trim { it <= ' ' }.replace(" ", "").replace("\n", "").replace("\r", ""))
     }
 
     @Test
@@ -62,6 +62,11 @@ class CarParkingServiceImplTest {
         carParkingService.parkCar(Car("KA-01-HH-9999", "White"))
         carParkingService.carParkingStatus()
         assertEquals("Sorry,parkinglotisnotcreatedCreatedparkinglotofmaximumcapacityof6slotsCarallocatedatslotnumber:1Carallocatedatslotnumber:2SlotNo.RegistrationNo.Color1KA-01-HH-1234White2KA-01-HH-9999White".trimIndent(), outContent.toString().trim { it <= ' ' }.replace(" ", "").replace("\n", "").replace("\r", "").replace("\t", ""))
+    }
+
+    @Test
+    fun testGetApplicableCharge(){
+        assertEquals("60", carParkingService.getApplicableCharge("7"))
     }
 
 
