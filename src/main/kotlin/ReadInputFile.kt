@@ -4,7 +4,7 @@ import java.io.InputStream
 
 
 fun main() {
-    val inputStream: InputStream = File("src/main/resources/file_input.txt").inputStream()
+    val inputStream: InputStream = File(System.getProperty("user.dir")+"/file_input.txt").inputStream()
     readInputFileText(inputStream)
 }
 
