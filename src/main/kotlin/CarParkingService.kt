@@ -1,5 +1,5 @@
 interface CarParkingService {
-    fun createParkingLot(capacity:String)
+    fun createCarParkingLot(capacity:String)
 
     fun parkCar(regNo: String, color: String)
 

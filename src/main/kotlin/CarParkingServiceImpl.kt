@@ -11,7 +11,7 @@ class CarParkingServiceImpl : CarParkingService {
 
     lateinit var carRegNoAndSlotMap: Map<String, String>
 
-    override fun createParkingLot(capacity: String) {
+    override fun createCarParkingLot(capacity: String) {
         try {
             this.MAX_CAPACITY = capacity.toInt()
         } catch (e: Exception) {

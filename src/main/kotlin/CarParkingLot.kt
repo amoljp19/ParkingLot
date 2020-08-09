@@ -5,8 +5,8 @@ object CarParkingLot {
         carParkingService = CarParkingServiceImpl()
     }
 
-    fun createParkingLot(capacity:String){
-        carParkingService.createParkingLot(capacity)
+    fun createCarParkingLot(capacity:String){
+        carParkingService.createCarParkingLot(capacity)
     }
 
     fun parkCar(regNo: String, color: String){

@@ -21,7 +21,7 @@ object CommandProcessor {
                 }
                 val maxCapacity = inputStrList[1]
                 CarParkingLot.initCarParkingService()
-                CarParkingLot.createParkingLot(maxCapacity)
+                CarParkingLot.createCarParkingLot(maxCapacity)
             }
             Commands.PARK -> {
                 if (!inputStrList.size.equals(3)) {
