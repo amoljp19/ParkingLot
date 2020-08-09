@@ -1,6 +1,6 @@
 enum class Commands(val commandName: String) {
 
-    CREATE("create_parking_lot"),
+    CREATE_PARKING_LOT("create_parking_lot"),
     PARK("park"),
     LEAVE("leave"),
     STATUS("status");
