@@ -40,6 +40,18 @@ class CarParkingServiceImplTest {
         assertEquals(4, carParkingService.availableSlotList.size)
     }
 
+    @Test
+    @Throws(Exception::class)
+    fun testLeaveCar() {
+        carParkingService.leaveCar("KA-01-HH-1234", "3")
+        assertEquals("Sorry,parkinglotisnotcreated", outContent.toString().trim { it <= ' ' }.replace(" ", ""))
+        carParkingService.createCarParkingLot("6")
+        carParkingService.parkCar(Car("KA-01-HH-1234", "White"))
+        carParkingService.parkCar(Car("KA-01-HH-9999", "White"))
+        carParkingService.leaveCar("KA-01-HH-9999", "2")
+        assertEquals("Sorry,parkinglotisnotcreatedCreatedparkinglotofmaximumcapacityof6slotsCarallocatedatslotnumber:1Carallocatedatslotnumber:2Slotnumber2isfree".trimIndent(), outContent.toString().trim { it <= ' ' }.replace(" ", "").replace("\n", "").replace("\r", ""))
+    }
+
 
     @After
     fun cleanUpStreams() {
