@@ -20,9 +20,8 @@ object CommandProcessor {
                     throw Exception("Invalid no of arguments for command : $command")
                 }
                 val maxCapacity = inputStrList[1]
+                CarParkingLot.initCarParkingService()
                 CarParkingLot.createParkingLot(maxCapacity)
-
-                println("Car Parking Lot created")
             }
             Commands.PARK -> {
                 if (!inputStrList.size.equals(3)) {
