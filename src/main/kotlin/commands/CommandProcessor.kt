@@ -45,10 +45,10 @@ object CommandProcessor {
                 CarParkingLot.leaveCar(carRegNo, hours)
             }
             Commands.STATUS -> {
-                if(!inputStrList.size.equals(2)) {
-                   // throw Exception("Invalid no of arguments for command : " + command);
+                if(!inputStrList.size.equals(1)) {
+                    throw Exception("Invalid no of arguments for command : " + command);
                 }
-                //CarParkingLot.carParkingStatus()
+                CarParkingLot.carParkingStatus()
             }
         }
 

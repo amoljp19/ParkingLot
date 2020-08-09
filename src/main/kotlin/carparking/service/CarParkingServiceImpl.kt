@@ -61,7 +61,7 @@ class CarParkingServiceImpl : CarParkingService {
                 println()
             }
             this.slotAndCarMap.size > 0 -> {
-                val slotNo: String = this.carRegNoAndSlotMap.get(carRegNo)!!
+                val slotNo: String = this.carRegNoAndSlotMap.get(carRegNo).toString()
                 val carToLeave: Car = this.slotAndCarMap.get(slotNo)!!
                 when {
                     !carToLeave.equals(null) -> {
@@ -85,6 +85,28 @@ class CarParkingServiceImpl : CarParkingService {
     }
 
     override fun carParkingStatus() {
-        TODO("Not yet implemented")
+        when {
+            this.MAX_CAPACITY.equals(0) -> {
+                println("Sorry, parking lot is not created")
+                println()
+            }
+            this.slotAndCarMap.size > 0 -> {
+
+                println("Slot No.\tRegistration No.\tColor")
+                var car: Car
+                for (i in 1..this.MAX_CAPACITY) {
+                    val key = Integer.toString(i)
+                    if (this.slotAndCarMap.containsKey(key)) {
+                        car = this.slotAndCarMap.get(key)!!
+                        println(i.toString() + "\t\t\t" + car.regNo + "\t\t" + car.color)
+                    }
+                }
+                println()
+            }
+            else -> {
+                println("Parking lot is empty")
+                println()
+            }
+        }
     }
 }
