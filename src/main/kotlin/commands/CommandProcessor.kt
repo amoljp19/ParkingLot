@@ -1,6 +1,7 @@
 package commands
 
 import carparking.CarParkingLot
+import carparking.model.Car
 
 object CommandProcessor {
 
@@ -33,8 +34,7 @@ object CommandProcessor {
                 }
                 val regNo = inputStrList[1]
                 val color = inputStrList[2]
-                CarParkingLot.parkCar(regNo, color)
-                println("Park carparking.model.Car")
+                CarParkingLot.parkCar(Car(regNo, color))
             }
             Commands.LEAVE -> {
                 if (!inputStrList.size.equals(2)) {
@@ -42,14 +42,12 @@ object CommandProcessor {
                 }
                 val slotNo = inputStrList[1]
                 CarParkingLot.leaveCar(slotNo)
-                println("Leave carparking.model.Car")
             }
             Commands.STATUS -> {
                 if(!inputStrList.size.equals(2)) {
                     throw Exception("Invalid no of arguments for command : " + command);
                 }
                 CarParkingLot.carParkingStatus()
-                println("Parking Satus")
             }
         }
 

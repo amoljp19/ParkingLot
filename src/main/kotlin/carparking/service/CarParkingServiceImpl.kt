@@ -2,6 +2,8 @@ package carparking.service
 
 import carparking.model.Car
 import java.util.*
+import kotlin.collections.ArrayList
+import kotlin.collections.HashMap
 
 
 class CarParkingServiceImpl : CarParkingService {
@@ -10,9 +12,9 @@ class CarParkingServiceImpl : CarParkingService {
 
     lateinit var availableSlotList: ArrayList<Int>
 
-    lateinit var slotAndCarMap: Map<String, Car>
+    lateinit var slotAndCarMap: HashMap<String, Car>
 
-    lateinit var carRegNoAndSlotMap: Map<String, String>
+    lateinit var carRegNoAndSlotMap: HashMap<String, String>
 
     override fun createCarParkingLot(capacity: String) {
         try {
@@ -32,7 +34,25 @@ class CarParkingServiceImpl : CarParkingService {
     }
 
     override fun parkCar(car: Car) {
-        TODO("Not yet implemented")
+        when {
+            this.MAX_CAPACITY.equals(0) -> {
+                println("Sorry, car parking lot is not created, please create it first")
+                println()
+            }
+            this.slotAndCarMap.size.equals(this.MAX_CAPACITY) -> {
+                println("Sorry, car parking lot is full")
+                println()
+            }
+            else -> {
+                Collections.sort(availableSlotList)
+                val slot = availableSlotList[0].toString()
+                this.slotAndCarMap.put(slot,car)
+                this.carRegNoAndSlotMap.put(car.regNo, slot)
+                println("Car allocated at slot number: $slot")
+                println()
+                availableSlotList.removeAt(0)
+            }
+        }
     }
 
     override fun leaveCar(slotNo: String) {
