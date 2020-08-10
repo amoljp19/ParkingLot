@@ -2,24 +2,34 @@ plugins {
     id 'java'
     id 'org.jetbrains.kotlin.jvm' version '1.3.72'
 }
-
 group 'org.example'
 version '1.0-SNAPSHOT'
-
-//task fatJar(type: Jar) {
-//    manifest {
-//        attributes 'Main-Class': 'ReadInputFileKt'
-//    }
-//    baseName = "${rootProject.name}"
-//    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
-//    with jar
-//}
-
 repositories {
     mavenCentral()
 }
-
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib"
     testImplementation 'junit:junit:4.12'
+    implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.2.41'
+}
+jar{
+    manifest{
+        attributes 'Main-Class' : 'kotlin.ReadInputFile'
+    }
+}
+task fatJar(type: Jar) {
+    manifest {
+        attributes 'Main-Class': "ReadInputFileKt"
+    }
+    baseName = "${rootProject.name}"
+    from { configurations.compileClasspath.collect { it.isDirectory() ? it : zipTree(it) } }
+    with jar
+}
+task testCaseJar(type: Jar) {
+    manifest {
+        attributes 'Main-Class': "ReadInputFileTestKt"
+    }
+    baseName = "${rootProject.name}"
+    from { configurations.compileClasspath.collect { it.isDirectory() ? it : zipTree(it) } }
+    with jar
 }
