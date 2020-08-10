@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="commands.CommandsTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2020-08-10T17:58:47" hostname="LAPTOP-2D1GM5DQ" time="0.015">
+  <properties/>
+  <testcase name="testInCorrectCommand" classname="commands.CommandsTest" time="0.014"/>
+  <testcase name="testCorrectCommand" classname="commands.CommandsTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

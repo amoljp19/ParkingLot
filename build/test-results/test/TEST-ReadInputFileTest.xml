@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="ReadInputFileTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2020-08-10T17:58:47" hostname="LAPTOP-2D1GM5DQ" time="0.02">
+  <properties/>
+  <testcase name="readInputFileTextTest" classname="ReadInputFileTest" time="0.009"/>
+  <testcase name="testReadInputFileText" classname="ReadInputFileTest" time="0.011"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

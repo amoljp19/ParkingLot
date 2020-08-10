@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="carparking.service.CarParkingServiceImplTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2020-08-10T17:58:47" hostname="LAPTOP-2D1GM5DQ" time="0.081">
+  <properties/>
+  <testcase name="testLeaveCar" classname="carparking.service.CarParkingServiceImplTest" time="0.076"/>
+  <testcase name="testGetApplicableCharge" classname="carparking.service.CarParkingServiceImplTest" time="0.0"/>
+  <testcase name="testParkCar" classname="carparking.service.CarParkingServiceImplTest" time="0.0"/>
+  <testcase name="testCarParkingStatus" classname="carparking.service.CarParkingServiceImplTest" time="0.001"/>
+  <testcase name="testCreateCarParkingLot" classname="carparking.service.CarParkingServiceImplTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
