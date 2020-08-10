@@ -8,7 +8,7 @@ fun main(args: Array<String>) {
         println("Please provide a name as a command-line argument")
         return
     }
-    val inputStream: InputStream = File(System.getProperty("user.dir")+"/${args[0]}").inputStream()
+    val inputStream: InputStream = File(System.getProperty("user.dir") + "/${args[0]}").inputStream()
     readInputFileText(inputStream)
 }
 

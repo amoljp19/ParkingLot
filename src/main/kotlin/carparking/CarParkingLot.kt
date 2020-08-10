@@ -7,23 +7,23 @@ import carparking.service.CarParkingServiceImpl
 object CarParkingLot {
     lateinit var carParkingService: CarParkingService
 
-    fun initCarParkingService(){
+    fun initCarParkingService() {
         carParkingService = CarParkingServiceImpl()
     }
 
-    fun createCarParkingLot(capacity:String){
+    fun createCarParkingLot(capacity: String) {
         carParkingService.createCarParkingLot(capacity)
     }
 
-    fun parkCar(car: Car){
+    fun parkCar(car: Car) {
         carParkingService.parkCar(car)
     }
 
-    fun leaveCar(carRegNo: String, hours: String){
+    fun leaveCar(carRegNo: String, hours: String) {
         carParkingService.leaveCar(carRegNo, hours)
     }
 
-    fun carParkingStatus(){
+    fun carParkingStatus() {
         carParkingService.carParkingStatus()
     }
 }

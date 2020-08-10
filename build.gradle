@@ -12,9 +12,9 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.2.41'
 }
-jar{
-    manifest{
-        attributes 'Main-Class' : 'kotlin.ReadInputFile'
+jar {
+    manifest {
+        attributes 'Main-Class': 'kotlin.ReadInputFile'
     }
 }
 task fatJar(type: Jar) {

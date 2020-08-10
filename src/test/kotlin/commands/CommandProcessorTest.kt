@@ -17,9 +17,10 @@ class CommandProcessorTest {
     }
 
     @Test
-    fun testValidateCommandAndProcess(){
+    fun testValidateCommandAndProcess() {
         CommandProcessor.validateCommandsAndProcess("create_parking_lot 6")
-        assertTrue("createdparkinglotofmaximumcapacityof6slots".equals(outContent.toString().trim { it <= ' ' }.replace(" ", ""), ignoreCase = true))
+        assertTrue("createdparkinglotofmaximumcapacityof6slots".equals(outContent.toString().trim { it <= ' ' }
+            .replace(" ", ""), ignoreCase = true))
     }
 
     @After

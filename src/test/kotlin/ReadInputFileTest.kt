@@ -46,10 +46,14 @@ class ReadInputFileTest {
     }
 
     @Test
-    fun testReadInputFileText(){
-        inputStream = File("src/test/resources/file_input2.txt").inputStream()
+    fun testReadInputFileText() {
+        inputStream = File("src/test/resources/file_input1.txt").inputStream()
         readInputFileText(inputStream)
-        Assert.assertTrue("Createdparkinglotofmaximumcapacityof6slotsCarallocatedatslotnumber:1".equals(outContent.toString().trim { it <= ' ' }.replace(" ", "").replace("\n", "").replace("\r", "")))
+        Assert.assertTrue(
+            "Createdparkinglotofmaximumcapacityof6slotsCarallocatedatslotnumber:1".equals(
+                outContent.toString().trim { it <= ' ' }.replace(" ", "").replace("\n", "").replace("\r", "")
+            )
+        )
     }
 
     @After

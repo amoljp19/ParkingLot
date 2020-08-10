@@ -73,7 +73,11 @@ class CarParkingServiceImpl : CarParkingService {
 
                                 this.carRegNoAndSlotMap.remove(carToLeave.regNo)
                                 availableSlotList.add(slotNo.toInt())
-                                System.out.println("Registration number " + carToLeave.regNo + " with Slot Number " + slotNo + " with Charge " + getApplicableCharge(hours))
+                                System.out.println(
+                                    "Registration number " + carToLeave.regNo + " with Slot Number " + slotNo + " with Charge " + getApplicableCharge(
+                                        hours
+                                    )
+                                )
                                 println()
                             }
                             else -> {
